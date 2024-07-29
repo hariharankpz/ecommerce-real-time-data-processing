@@ -38,30 +38,31 @@ No, refer to the screenshot below for more information.
 
 ## Step 2: Create Kinesis Data Stream
 
-![Kinesis Data Stream](images/image7.png){width="6.5in" height="3.0833333333333335in"}
+![Kinesis Data Stream](images/image7.png)
 
 Trigger the mock data and you may encounter the following error:
 
 
 
-Exception occurs: An error occurred (AccessDeniedException) when calling
+> Exception occurs: An error occurred (AccessDeniedException) when calling
 the PutRecord operation: User:
 arn:aws:iam::381491939671:user/aws-de-user is not authorized to perform:
 kinesis:PutRecord on resource:
 arn:aws:kinesis:us-east-1:381491939671:stream/e-commerce-streaming
 because no identity-based policy allows the kinesis:PutRecord action
 
-So from kinesis we can\'t directly add permission , To resolve this
+So from kinesis we can't directly add permission , To resolve this
 issue, you need to update the IAM policy attached to the IAM user
 aws-de-user to include permissions for kinesis:PutRecord on the specific
 Kinesis stream
 arn:aws:kinesis:us-east-1:381491939671:stream/e-commerce-streaming.
 
-**Step 3: Go to Iam user and update the IAM policy for the user** to
+**Step 3:**
+Go to Iam user and update the IAM policy for the user to
 make access to this. Because you are using access key and secret key of
 this user to access the kinesis from external source(google collab here)
 
-![](images/image19.png){width="6.5in" height="3.388888888888889in"}
+![](images/image19.png)
 
 Above we have given kinesis all access to the IAM user aws-de-user for
 all kinesis streams, but what if we want to give only record access into
@@ -70,7 +71,7 @@ only one specific kinesis stream.
 Go to add permission, add inline permission and create a json with below
 json string and save.
 
-{
+> {
 
 \"Version\": \"2012-10-17\",
 
@@ -95,17 +96,17 @@ Just give arn of the specific resource in the Resource key
 
 Now we have data inserted from a mock data generator into Kinesis shard.
 
-![](images/image1.png){width="6.5in" height="3.3489588801399823in"}
+![](images/image1.png)
 
 **Step 4: Create a lambda function that will connect to kinesis stream
 directly and read data and update dynamo DB**
 
-![](images/image2.png){width="6.5in" height="2.9444444444444446in"}
+![](images/image2.png)
 
 **Step 5: Set up AWS EventBridge to capture the events from the Kinesis
 stream.**
 
-![](images/image17.png){width="6.5in" height="3.25in"}
+![](images/image17.png)
 
 Connect Kinesis stream to lambda that we created in step 4
 
@@ -114,7 +115,7 @@ crossed. Eg: Quantity exceeds 1000, send SNS.
 
 Step 6: Create DynamoDB to store the inventory details
 
-![](images/image13.png){width="6.5in" height="6.305555555555555in"}
+![](images/image13.png)
 
 **Can we delete from Kinesis**
 
@@ -129,35 +130,35 @@ eventbridge pipe.
 
 Eventbridge IAM policy
 
-![](images/image8.png){width="6.5in" height="3.4583333333333335in"}
+![](images/image8.png)
 
 Lambda function IAM policy
 
-![](images/image18.png){width="6.5in" height="3.513888888888889in"}
+![](images/image18.png)
 
 Data inserted from mock data generator
 
-![](images/image14.png){width="6.5in" height="2.861111111111111in"}
+![](images/image14.png)
 
 Kinesis stream has data
 
-![](images/image9.png){width="6.5in" height="3.3333333333333335in"}
+![](images/image9.png)
 
 Through event bridge to lambda and from lambda data landed in dynamoDB
 
-![](images/image16.png){width="6.5in" height="3.2777777777777777in"}
+![](images/image16.png)
 
 Did some updates, insert from mock data generator
 
-![](images/image10.png){width="6.5in" height="2.2916666666666665in"}
+![](images/image10.png)
 
 Into shrad 1 two additional records
 
-![](images/image15.png){width="6.5in" height="3.1527777777777777in"}
+![](images/image15.png)
 
 Others 3 in shrad2
 
-![](images/image21.png){width="6.5in" height="3.4444444444444446in"}
+![](images/image21.png)
 
 After one add event
 
@@ -167,22 +168,22 @@ sample_dict = {
 
 }
 
-![](images/image5.png){width="6.5in" height="2.6805555555555554in"}
+![](images/image5.png)
 
 Now remove Oven
 
-![](images/image20.png){width="6.5in" height="2.9166666666666665in"}
+![](images/image20.png)
 
-![](images/image6.png){width="6.5in" height="4.152777777777778in"}
+![](images/image6.png)
 
 Oven removed from dynamoDB
 
-![](images/image11.png){width="6.5in" height="2.3055555555555554in"}
+![](images/image11.png)
 
 Updating quantity
 
-![](images/image12.png){width="6.5in" height="4.305555555555555in"}
+![](images/image12.png)
 
 Quantity of phone updated
 
-![](images/image4.png){width="6.5in" height="3.1527777777777777in"}
+![](images/image4.png)
