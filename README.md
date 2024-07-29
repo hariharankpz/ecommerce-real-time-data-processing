@@ -22,25 +22,27 @@ Your e-commerce platform needs to track real-time inventory changes for its prod
 
 ![Architecture Diagram](images/image22.png)
 
----\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
+## Can we invoke two Lambda functions from EventBridge?
 
-Can we invoke two lambda from eventbridge?
+No, refer to the screenshot below for more information.
 
-No, refer below screenshot for more
+![EventBridge and Lambda](images/image3.png)
 
-![](images/image3.png)
+---
 
----\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
+## Step 1: Mock Data Generator
 
-**Step 1: Mock data generator:**
+[Mock Data Generator Colab Notebook](https://colab.research.google.com/drive/1JbkrwxnE5dcusBi5-wML_dWLJgGGNEPk#scrollTo=me6Y9IkmaZMc)
 
-[[https://colab.research.google.com/drive/1JbkrwxnE5dcusBi5-wML_dWLJgGGNEPk#scrollTo=me6Y9IkmaZMc]{.underline}](https://colab.research.google.com/drive/1JbkrwxnE5dcusBi5-wML_dWLJgGGNEPk#scrollTo=me6Y9IkmaZMc)
+---
 
-**Step 2: Create Kinesis data stream**
+## Step 2: Create Kinesis Data Stream
 
-![](images/image7.png){width="6.5in" height="3.0833333333333335in"}
+![Kinesis Data Stream](images/image7.png){width="6.5in" height="3.0833333333333335in"}
 
-Trigger the mock data and you will get this error
+Trigger the mock data and you may encounter the following error:
+
+
 
 Exception occurs: An error occurred (AccessDeniedException) when calling
 the PutRecord operation: User:
