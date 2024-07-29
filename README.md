@@ -1,3 +1,24 @@
+****Objective:**** Design and implement a real-time data processing pipeline in AWS to manage a simulated e-commerce platform's inventory data.
+
+
+**Problem Statement:**
+Your e-commerce platform needs to track real-time inventory changes for its products. Every time a product is added, removed, or its quantity changes, an event is
+generated. Your task is to design a real-time processing system that will capture these events, process them, and update a real-time inventory system
+
+
+**Requirements:**
+○ Data Source: A mock script you'll design will simulate inventory events by generating and publishing them to an AWS Kinesis stream.
+
+○ Event Processing: Use AWS EventBridge to capture events from the Kinesis stream and forward them for processing.
+
+○ Data Transformation and Storage:
+  ■ Process the real-time stream of data to calculate the latest inventory state for each product.
+  ■ Store the processed data in DynamoDB, ensuring that inventory counts remain consistent and accurate.
+■ Inventory Events Include:
+  ● Product added to inventory.
+  ● Product removed from inventory.
+  ● Product quantity changes (increment or decrement).
+
 **Architecture**
 
 ![](images/image22.png){width="6.5in" height="3.8333333333333335in"}
