@@ -199,6 +199,6 @@ In this project, we successfully designed and implemented a real-time data proce
 2. **Data Transformation and Storage**: We transformed the streaming data to calculate the latest inventory state and stored the processed data in DynamoDB, ensuring consistency and accuracy.
 3. **Robust Architecture**: The architecture, comprising Kinesis, EventBridge, Lambda, and DynamoDB, provided a scalable and reliable solution for real-time inventory management.
 4. **Error Handling and Security**: By separating the event generation, processing, and storage into distinct components, we ensured better error handling and easier debugging. Additionally, proper IAM policies and permissions were set up to secure the pipeline.
-5. **CICD Integration**: Integrating CICD using AWS CodeBuild streamlined the deployment process, allowing for continuous integration and delivery of changes.
+
 
 Overall, the project demonstrates the effective use of AWS services to build a real-time, scalable, and secure data processing pipeline for managing e-commerce inventory data.
